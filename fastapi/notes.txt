@@ -28,3 +28,37 @@ pydantic
 #hit from browser / swagger
   http://127.0.0.1:8000
   http://127.0.0.1:8000/docs
+#hosting fastapi
+#follow word doc for screenshots
+#prerequisities
+#update the instance
+    sudo apt-get update 
+#install python
+    sudo apt install python3-pip
+#install git
+    sudo apt install git
+#git clone repository
+    sudo git clone https://github.com/besthavenkatesulu/BESTHA.git
+#change project directory
+    cd BESTHA/fastapi
+#create virtual env
+    sudo apt update
+    sudo apt install python3-venv -y
+    python3 -m venv venv -error bcz git permission 
+    sudo chown -R ubuntu:ubuntu ~/BESTHA
+    ls -ld ~/BESTHA/fastapi
+    python3 -m venv venv
+    source venv/bin/activate
+#Install all the dependencies required for the project.
+    pip install -r requirments.txt
+#run the fastapi
+    python3 -m uvicorn main:app --host 0.0.0.0 --port 8000
+when try to open from the browser - http://0.0.0.0:8000 or host from instance https://13.63.161.141:8000/ it will not work as we have nt defined the user security groups
+make sure remove s from https of the above url
+#configure AWS security group
+    Go to the AWS EC2 Instance --> Open the Security tab --> Click Edit inbound rules 
+    -->Create a new custom rule --> Enable access from Anywhere ipv4 
+    Go to the public IP provided by the instance and append :8000 because the API is running on port 8000
+
+
+ 
